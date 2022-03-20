@@ -1,3 +1,4 @@
+const connectDB = require("./Models/db");
 const mongoose = require("mongoose")
 const express = require("express")
 const app = express()
@@ -7,15 +8,9 @@ const cookieParser = require("cookie-parser")
 const cors = require("cors")
 require("dotenv").config();
 
-// DB Connection
-mongoose.connect(process.env.DATABASE, {
-    useNewUrlParser: true
-}).then(() => {
-    console.log("DB CONNECTED")
-}).catch(() => {
-    console.log("UNABLE to connect to DB")
-})
 
+//Connecting the Database
+connectDB();
 
 /*
     for views folder we have added the files using html and bootstrap. not yet connected for the 
@@ -29,9 +24,13 @@ app.use(cors())
 
 // Import the routes
 const userRoutes = require("./routes/user")
+const weatherRoutes = require("./routes/weather")
+const userPostRoutes = require("./routes/userPost")
 
 // Using routes
 app.use('/api', userRoutes)
+app.use('/weather', weatherRoutes)
+app.use('/weatherUserPost', userPostRoutes)
 
 
 const port = process.env.PORT || 8000

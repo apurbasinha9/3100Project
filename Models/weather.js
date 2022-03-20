@@ -24,8 +24,11 @@ const weatherSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-
 });
+
+
+
 const weatherModel = mongoose.model('CityWeather', weatherSchema, 'cityWeather');
+
 
 module.exports = weatherModel;

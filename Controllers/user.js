@@ -1,20 +1,11 @@
 const User = require("../Models/user")
-const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
-const expressJwt = require('express-jwt')
 
 
-exports.signup = (req, res) => {
-    const errors = validationResult(req)
-
-    if (!errors.isEmpty()) {
-        return res.status(400).json({
-            error: errors.array()[0].msg
-        })
-    }
+exports.signup = async (req, res) => {
 
     const user = new User(req.body)
-    user.save((err, user) => {
+    await user.save((err, user) => {
         if (err) {
             return res.status(400).json({
                 error: "Unable to add user"
@@ -29,8 +20,9 @@ exports.signup = (req, res) => {
 }
 
 
-exports.signin = (req, res) => {
+exports.signin = async (req, res) => {
     const { email, password } = req.body;
+
     User.findOne({ email }, (err, user) => {
         if (err || !user) {
             return res.status(400).json({
@@ -50,7 +42,6 @@ exports.signin = (req, res) => {
         //create token
         const token = jwt.sign({ _id: user._id }, process.env.SECRET)
 
-
         //token to cookie
         res.cookie('token', token, { expire: new Date() + 1 })
 
@@ -68,9 +59,9 @@ exports.signin = (req, res) => {
 }
 
 
-exports.signout = (req, res) => {
-    res.clearCookie("token")
+exports.signout = async (req, res) => {
+    await res.clearCookie("token")
     return res.json({
-        message: "user signout successfull"
+        message: "user signout is successful"
     })
 }
