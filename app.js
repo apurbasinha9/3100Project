@@ -16,6 +16,12 @@ mongoose.connect(process.env.DATABASE, {
     console.log("UNABLE to connect to DB")
 })
 
+
+/*
+    for views folder we have added the files using html and bootstrap. not yet connected for the 
+    frontend.
+*/
+
 // Use parsing middleware
 app.use(bodyParser.json())
 app.use(cookieParser())
