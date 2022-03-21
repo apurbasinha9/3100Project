@@ -28,7 +28,7 @@ const weatherRoutes = require("./routes/weather")
 const userPostRoutes = require("./routes/userPost")
 
 // Using routes
-app.use('/api', userRoutes)
+app.use('/auth', userRoutes)
 app.use('/weather', weatherRoutes)
 app.use('/weatherUserPost', userPostRoutes)
 
