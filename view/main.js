@@ -94,19 +94,21 @@ $(document).ready(function () {
     $("#searchButton").click(function (event) {
         event.preventDefault();
         console.log({
-            city: $('#cityname').val()
+            city: $('#cityname').val(),
+            province: $('#provincename').val()
         });
 
         $.ajax({
             url: '/weather/city_weather',
             type: 'GET',
             contentType: 'application/json',
-            data: {
-                city: $('#cityname').val()
-            },
+            data: JSON.stringify({
+                city: $('#cityname').val(),
+                province: $('#provincename').val()
+            }),
             success: function (response) {
                 console.log(response);
-                // $("#find-city").text(response.city);
+                // $("#find-citsy").text(response.city);
                 // $("#find-province").text(response.province);
                 // $("#find-temperature").text(response.temperature);
                 alert('success')

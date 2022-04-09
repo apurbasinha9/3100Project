@@ -1,7 +1,9 @@
 const weatherModel = require("../Models/weather")
 
 exports.cityWeather = async (req, res) => {
-    const { city, province } = req.body;
+    const { city, province } = req.params;
+    console.log(req.params)
+
     weatherModel.findOne({ city, province }, (err, result) => {
         if (err || !result) {
             return res.status(400).json({
