@@ -1,0 +1,72 @@
+body {
+    padding: 5px;
+}
+
+.signIn {
+    background-color: #212F3D;
+}
+
+.signinText {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4vw;
+}
+
+.signinComp {
+    background-color: #2E4053;
+    width: 40%;
+    padding: 60px 50px;
+    margin-top: 100px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.signUp {
+    background-color: #212F3D;
+}
+
+.signupText {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 4vw;
+}
+
+.signupComp {
+    background-color: #2E4053;
+    width: 40%;
+    padding: 60px 50px;
+    margin-top: 100px;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+}
+
+
+label {
+    color: greenyellow;
+}
+
+.weatherBody {
+    background-color: #1C2833;
+    color: greenyellow;
+}
+
+.weatherText {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.weatherComp {
+    width: 50%;
+    background-color: #2C3E50;
+    padding: 60px 40px;
+    border-radius: 10px;
+
+}
+
+.signOut {
+    float: right;
+
+}

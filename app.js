@@ -17,9 +17,12 @@ connectDB();
     frontend.
 */
 
+
 // Use parsing middleware
 app.use(bodyParser.json())
+app.use(express.urlencoded(({ extended: false })))
 app.use(cookieParser())
+app.use(express.static('view'))
 app.use(cors())
 
 // Import the routes
@@ -27,13 +30,14 @@ const userRoutes = require("./routes/user")
 const weatherRoutes = require("./routes/weather")
 const userPostRoutes = require("./routes/userPost")
 
-// Using routes
+// // Using routes
+
 app.use('/auth', userRoutes)
 app.use('/weather', weatherRoutes)
 app.use('/weatherUserPost', userPostRoutes)
 
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 3000
 
 // Starting a server
 app.listen(port, () => {
